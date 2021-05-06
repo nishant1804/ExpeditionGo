@@ -1,0 +1,48 @@
+﻿@model ExpeditionGo.DataModel.ContactUsModel
+
+
+<div class="tm-main-content" id="top">
+    <div class="tm-top-bar-bg"></div>
+    <div class="tm-top-bar" id="tm-top-bar">
+        <div class="container">
+            <div class="row">
+
+                <nav class="navbar navbar-expand-lg narbar-light">
+                    <a class="navbar-brand mr-auto" asp-controller="Home" asp-action="HomeIndex">
+                        <img src="~/img/logo.png">
+                        ExpeditionGo
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tm-page-wrap mx-auto">
+        <div class="tm-container-outer" id="tm-section-3">
+                <div class="tab-pane fade show active" id="4a">
+                    <div class="tm-recommended-place-wrap">
+                        <div class="tm-recommended-place-wrap">
+                            
+                            <div class="tm-recommended-place">
+                                <div class="tm-recommended-description-box">
+                                    <h3 class="tm-recommended-title" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@Model.ContactUsId">@Model.FirstName</h3>
+                                    <h3 class="tm-recommended-title" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@Model.ContactUsId">@Model.LastName</h3>
+
+                                    <p class="tm-text-highlight" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@Model.ContactUsId">@Model.UserEmail , @Model.ContactCreated</p>
+                                    <p class="tm-text-gray" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@Model.ContactUsId">@Model.Subject</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        <footer class="tm-container-outer">
+            <p class="mb-0">
+                Copyright © <span class="tm-current-year">2021</span> ExpeditionGo
+            </p>
+        </footer>
+    </div>

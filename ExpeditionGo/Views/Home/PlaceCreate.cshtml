@@ -1,0 +1,129 @@
+﻿@model ExpeditionGo.DataModel.PlaceModel
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+<div class="tm-main-content" id="top">
+    <div class="tm-top-bar-bg"></div>
+    <div class="tm-top-bar" id="tm-top-bar">
+        <div class="container">
+            <div class="row">
+
+                <nav class="navbar navbar-expand-lg narbar-light">
+                    <a class="navbar-brand mr-auto" asp-controller="Home" asp-action="HomeIndex">
+                        <img src="~/img/logo.png">
+                        ExpeditionGo
+                    </a>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div style=" font-family: " Poppins", sans-serif !important;">
+        <section class="p-5 tm-container-outer tm-bg-gray" style=" max-width: 100%;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 mx-auto tm-about-text-wrap text-center">
+                        <h2 class="text-uppercase mb-4"> Add Your <strong>Place</strong> </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br /><br />
+        <div class="container ">
+            <form asp-action="AddPlace" method="post" id="addBlogLeft">
+                <div class="row">
+                    <div class="col-25">
+                        <label asp-for="PlaceHeading">Place Tilte</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" asp-for="PlaceHeading" placeholder="Enter  Tilte " required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label>Code</label>
+                    </div>
+                    <div class="col-75">
+                        North America = NA / South America = SA / Europe = ER / Asia = AS / Africa = AF / Australia = AU / Antartica = AR
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label asp-for="PlaceContinent">Place Continent</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" asp-for="PlaceContinent" placeholder="Enter  Continent " required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label asp-for="City">Place City</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" asp-for="City" placeholder="Enter City " required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label asp-for="Country">Place Country</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" asp-for="Country" placeholder="Enter Country " required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label asp-for="PlaceDescription">Place Description</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea type="text" asp-for="PlaceDescription" placeholder="Write something.." style="height:200px"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label asp-for="PlaceContent">Place Content</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea type="text" asp-for="PlaceContent" placeholder="Write something.." style="height:200px"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label asp-for="PlaceSubContent">Place SubContent</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea type="text" asp-for="PlaceSubContent" placeholder="Write something.." style="height:200px"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label asp-for="ImageURL">Image URL </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" asp-for="ImageURL" placeholder="Enter URL " required>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" id="submitPostBtn" class="text-uppercase btn-primary tm-btn" style=" margin: 5% 50%; ">
+                        <span>
+                            Submit
+                        </span>
+                    </button>
+
+                </div>
+
+                <input asp-for="PlaceId" type="hidden" />
+            </form>
+        </div>
+
+    </div>
+
+    <footer class="tm-container-outer">
+        <p class="mb-0">
+            Copyright © <span class="tm-current-year">2021</span> ExpeditionGo
+        </p>
+    </footer>
+</div>
+
+

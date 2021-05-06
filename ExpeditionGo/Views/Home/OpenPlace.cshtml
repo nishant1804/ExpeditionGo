@@ -1,0 +1,79 @@
+﻿@model ExpeditionGo.DataModel.PlaceModel
+
+
+<div class="tm-main-content" id="top">
+    <div class="tm-top-bar-bg"></div>
+    <div class="tm-top-bar" id="tm-top-bar">
+        <div class="container">
+            <div class="row">
+
+                <nav class="navbar navbar-expand-lg narbar-light">
+                    <a class="navbar-brand mr-auto" asp-controller="Home" asp-action="HomeIndex">
+                        <img src="~/img/logo.png">
+                        ExpeditionGo
+                    </a>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <br />
+    <br />
+    <br />
+    <div class="col-md-8 mx-auto">
+        <h1 style="font-weight: 600;" asp-controller="Profile" asp-action="Details" asp-route-id="@Model.PlaceId">
+            @Model.PlaceHeading
+        </h1>
+        <div class="py-3 text-dark flex items-center justify-center">
+            <small class="mr-3 flex flex-row items-center">
+                <svg fill="currentColor" height="13px" width="13px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g>
+                <path d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256
+      c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128
+      c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z" /></g></g></svg>
+                <span class="ml-1">@Model.PlaceCreated</span>
+            </small>
+            <small>
+                <svg fill="currentColor" height="13px" width="13px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g>
+                <path d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256
+      c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128
+      c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z" /></g></g></svg>
+                <a href="#" class="flex flex-row items-center text-dark mr-3">
+                    <span class="ml-1">@Model.City</span>, <span class="ml-1">@Model.Country</span>
+                </a>
+            </small>
+        </div>
+    </div>
+
+    <div class="col-md-8 mx-auto" style="        height: 400px;
+        background-image: url(@Model.ImageURL);
+        background-size: cover;
+        background-position: center;">
+    </div>
+
+    <div class="col-lg-8 p-2 p-sm-4 mx-auto">
+        <div class="text-secondary">
+            <p class="my-2" style="line-height: 1.5; font-weight:500; font-size:20px">@Model.PlaceDescription</p><br>
+            <br>
+
+            <p class="my-2" style="line-height: 2;">@Model.PlaceContent</p>
+            <br>
+            <br>
+
+            <p class="my-2" style="line-height: 2;">@Model.PlaceSubContent</p>
+
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <footer class="tm-container-outer">
+        <p class="mb-0">
+            Copyright © <span class="tm-current-year">2021</span> ExpeditionGo
+        </p>
+    </footer>
+</div>

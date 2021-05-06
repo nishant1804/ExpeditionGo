@@ -1,0 +1,489 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model ExpeditionGo.DataModel.HomeIndexModel
+
+
+
+<div class="tm-main-content" id="top">
+    <div class="tm-top-bar-bg"></div>
+    <div class="tm-top-bar" id="tm-top-bar">
+        <div class="container">
+            <div class="row">
+
+                <nav class="navbar navbar-expand-lg narbar-light">
+                    <a class="navbar-brand mr-auto" asp-controller="Home" asp-action="HomeIndex">
+                        <img src="~/img/logo.png">
+                        ExpeditionGo
+                    </a>
+                    <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#top">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tm-section-2">Top Places</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tm-section-3">Recommended Places</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tm-section-4">Contact Us</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tm-page-wrap mx-auto">
+        <section class="tm-banner">
+            <div class="tm-container-outer tm-banner-bg">
+                <div class="container">
+
+                    <div class="row tm-banner-row tm-banner-row-header">
+                        <div class="col-xs-12">
+                            <div class="tm-banner-header">
+
+                                <h1 class=" tm-banner-title">
+                                    LET's BEGIN
+                                    @if (SignInManager.IsSignedIn(User))
+                                    {
+                                        <span class="tm-banner-titlenm" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"> @User.Identity.Name!</span>
+
+                                    }
+                                </h1>
+
+                                <img src="~/img/dots-3.png" alt="Dots">
+                                <p class="tm-banner-subtitle">
+                                    Travel isn’t always pretty. It isn’t always comfortable. Sometimes it hurts, it even
+                                    breaks your heart. But that’s okay. The journey changes you; it should change you.
+                                    It leaves marks on your memory, on your consciousness, on your heart, and on your
+                                    body. You take something with you. Hopefully, you leave something good behind.
+                                </p>
+                                <p class="tm-banner-subtitle">
+                                    Why do you go away? So that you can come back. So that you can see the place
+                                    you came from with new eyes and extra colors. And the people there see you
+                                    differently, too. Coming back to where you started is not the same as never leaving.
+                                </p>
+                                <a href="javascript:void(0)" class="tm-down-arrow-link"><i class="fa fa-2x fa-angle-down tm-down-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row tm-banner-row" id="tm-section-search" style="display: none;">
+
+                        <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+                            <div class="form-row tm-search-form-row">
+                                <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                    <label for="inputCity">Choose Your Destination</label>
+                                    <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination...">
+                                </div>
+                                <div class="form-group tm-form-group tm-form-group-1">
+                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
+                                        <label for="inputRoom">How many rooms?</label>
+                                        <select name="room" class="form-control tm-select" id="inputRoom">
+                                            <option value="1" selected>1 Room</option>
+                                            <option value="2">2 Rooms</option>
+                                            <option value="3">3 Rooms</option>
+                                            <option value="4">4 Rooms</option>
+                                            <option value="5">5 Rooms</option>
+                                            <option value="6">6 Rooms</option>
+                                            <option value="7">7 Rooms</option>
+                                            <option value="8">8 Rooms</option>
+                                            <option value="9">9 Rooms</option>
+                                            <option value="10">10 Rooms</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                        <label for="inputAdult">Adult</label>
+                                        <select name="adult" class="form-control tm-select" id="inputAdult">
+                                            <option value="1" selected>1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+
+                                        <label for="inputChildren">Children</label>
+                                        <select name="children" class="form-control tm-select" id="inputChildren">
+                                            <option value="0" selected>0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> <!-- form-row -->
+                            <div class="form-row tm-search-form-row">
+
+                                <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                    <label for="inputCheckIn">Check In Date</label>
+                                    <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Check In">
+                                </div>
+                                <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                    <label for="inputCheckOut">Check Out Date</label>
+                                    <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Check Out">
+                                </div>
+                                <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                    <label for="btnSubmit">&nbsp;</label>
+                                    <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Check Availability</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <div class="tm-banner-overlay"></div>
+                </div>  <!-- .container -->
+            </div>     <!-- .tm-container-outer -->
+        </section>
+
+        <section class="p-5 tm-container-outer tm-bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 mx-auto tm-about-text-wrap text-center">
+                        <h2 class="text-uppercase mb-4">Your <strong>Journey</strong> is our priority</h2>
+                        <p class="mb-4">Nullam auctor, sapien sit amet lacinia euismod, lorem magna lobortis massa, in tincidunt mi metus quis lectus. Duis nec lobortis velit. Vivamus id magna vulputate, tempor ante eget, tempus augue. Maecenas ultricies neque magna.</p>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="text-uppercase btn-primary tm-btn">
+                                Logout
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tm-container-outer" id="tm-section-2">
+            @foreach (var q in Model.blogsLeft)
+            {
+                @if (q.BlogSide == "Left")
+                {
+                    <section class="tm-slideshow-section">
+                        <div class="tm-slideshow">
+                            <img src="@q.ImageURLOne" alt="Image">
+                            <img src="@q.ImageURLTwo" alt="Image">
+                            <img src="@q.ImageURLThree" alt="Image">
+                        </div>
+                        <div class="tm-slideshow-description tm-bg-primary">
+                            <h2 class="">@q.BlogLeftHeading</h2>
+                            <p asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.BlogLeftId">@q.BlogLeftDescription</p>
+                            <a asp-controller="Home" asp-action="OpenBlog" asp-route-id="@q.BlogLeftId"
+                               class="text-uppercase tm-btn tm-btn-white tm-btn-white-primary">Continue Reading</a>
+                        </div>
+                    </section>
+                }
+                @if (q.BlogSide == "Right")
+                {
+                    <section class="clearfix tm-slideshow-section tm-slideshow-section-reverse">
+                        <div class="tm-right tm-slideshow tm-slideshow-highlight">
+                            <img src="@q.ImageURLOne" alt="Image">
+                            <img src="@q.ImageURLTwo" alt="Image">
+                            <img src="@q.ImageURLThree" alt="Image">
+                        </div>
+                        <div class="tm-slideshow-description tm-slideshow-description-left tm-bg-highlight">
+                            <h2 class="">@q.BlogLeftHeading</h2>
+                            <p asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.BlogLeftId">@q.BlogLeftDescription</p>
+                            <a asp-controller="Home" asp-action="OpenBlog" asp-route-id="@q.BlogLeftId"
+                               class="text-uppercase tm-btn tm-btn-white tm-btn-white-highlight">Continue Reading</a>
+                        </div>
+                    </section>
+                }
+            }
+
+            <a asp-controller="Home" asp-action="BlogCreate" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table" style=" margin: 4% 0%; ">Add More Blogs</a>
+
+        </div>
+
+        <div class="tm-container-outer" id="tm-section-3">
+            <ul class="nav nav-pills tm-tabs-links">
+                <li class="tm-tab-link-li">
+                    <a href="#1a" data-toggle="tab" class="tm-tab-link">
+                        <img src="~/img/north-america.png" alt="Image" class="img-fluid">
+                        North America
+                    </a>
+                </li>
+                <li class="tm-tab-link-li">
+                    <a href="#2a" data-toggle="tab" class="tm-tab-link">
+                        <img src="~/img/south-america.png" alt="Image" class="img-fluid">
+                        South America
+                    </a>
+                </li>
+                <li class="tm-tab-link-li">
+                    <a href="#3a" data-toggle="tab" class="tm-tab-link">
+                        <img src="~/img/europe.png" alt="Image" class="img-fluid">
+                        Europe
+                    </a>
+                </li>
+                <li class="tm-tab-link-li">
+                    <a href="#4a" data-toggle="tab" class="tm-tab-link active">
+                        <!-- Current Active Tab -->
+                        <img src="~/img/asia.png" alt="Image" class="img-fluid">
+                        Asia
+                    </a>
+                </li>
+                <li class="tm-tab-link-li">
+                    <a href="#5a" data-toggle="tab" class="tm-tab-link">
+                        <img src="~/img/africa.png" alt="Image" class="img-fluid">
+                        Africa
+                    </a>
+                </li>
+                <li class="tm-tab-link-li">
+                    <a href="#6a" data-toggle="tab" class="tm-tab-link">
+                        <img src="~/img/australia.png" alt="Image" class="img-fluid">
+                        Australia
+                    </a>
+                </li>
+                <li class="tm-tab-link-li">
+                    <a href="#7a" data-toggle="tab" class="tm-tab-link">
+                        <img src="~/img/antartica.png" alt="Image" class="img-fluid">
+                        Antartica
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content clearfix">
+                <!-- Tab 1 -->
+                <div class="tab-pane fade" id="1a">
+                    <div class="tm-recommended-place-wrap">
+                        @foreach (var q in Model.place)
+                        {
+                            @if (q.PlaceContinent == "NA")
+                            {
+
+                                <div class="tm-recommended-place">
+                                    <img src="@q.ImageURL" alt="Image" class="img-fluid tm-recommended-img">
+                                    <div class="tm-recommended-description-box">
+                                        <h3 class="tm-recommended-title" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceHeading</h3>
+                                        <p class="tm-text-highlight" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.City , @q.Country</p>
+                                        <p class="tm-text-gray" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceDescription</p>
+                                    </div>
+                                    <a class="tm-recommended-price-box" asp-controller="Home" asp-action="OpenPlace" asp-route-id="@q.PlaceId">
+                                        <p class="tm-recommended-price-link">Continue Reading</p>
+                                    </a>
+                                </div>
+                            }
+
+                        }
+                    </div>
+                </div> <!-- tab-pane -->
+                <!-- Tab 2 -->
+                <div class="tab-pane fade" id="2a">
+
+                    <div class="tm-recommended-place-wrap">
+                        <div class="tm-recommended-place-wrap">
+                            @foreach (var q in Model.place)
+                            {
+                                @if (q.PlaceContinent == "SA")
+                                {
+
+                                    <div class="tm-recommended-place">
+                                        <img src="@q.ImageURL" alt="Image" class="img-fluid tm-recommended-img">
+                                        <div class="tm-recommended-description-box">
+                                            <h3 class="tm-recommended-title" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceHeading</h3>
+                                            <p class="tm-text-highlight" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.City , @q.Country</p>
+                                            <p class="tm-text-gray" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceDescription</p>
+                                        </div>
+                                        <a asp-controller="Home" asp-action="OpenPlace" asp-route-id="@q.PlaceId" class="tm-recommended-price-box">
+                                            <p class="tm-recommended-price-link">Continue Reading</p>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        </div>
+                    </div>
+                </div> <!-- tab-pane -->
+                <!-- Tab 3 -->
+                <div class="tab-pane fade" id="3a">
+
+                    <div class="tm-recommended-place-wrap">
+                        <div class="tm-recommended-place-wrap">
+                            @foreach (var q in Model.place)
+                            {
+                                @if (q.PlaceContinent == "ER")
+                                {
+
+                                    <div class="tm-recommended-place">
+                                        <img src="@q.ImageURL" alt="Image" class="img-fluid tm-recommended-img">
+                                        <div class="tm-recommended-description-box">
+                                            <h3 class="tm-recommended-title" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceHeading</h3>
+                                            <p class="tm-text-highlight" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.City , @q.Country</p>
+                                            <p class="tm-text-gray" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceDescription</p>
+                                        </div>
+                                        <a asp-controller="Home" asp-action="OpenPlace" asp-route-id="@q.PlaceId" class="tm-recommended-price-box">
+                                            <p class="tm-recommended-price-link">Continue Reading</p>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        </div>
+                    </div>
+                </div> <!-- tab-pane -->
+                <!-- Tab 4 -->
+                <div class="tab-pane fade show active" id="4a">
+                    <div class="tm-recommended-place-wrap">
+                        <div class="tm-recommended-place-wrap">
+                            @foreach (var q in Model.place)
+                            {
+                                @if (q.PlaceContinent == "AS")
+                                {
+
+                                    <div class="tm-recommended-place">
+                                        <img src="@q.ImageURL" alt="Image" class="img-fluid tm-recommended-img">
+                                        <div class="tm-recommended-description-box">
+                                            <h3 class="tm-recommended-title" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceHeading</h3>
+                                            <p class="tm-text-highlight" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.City , @q.Country</p>
+                                            <p class="tm-text-gray" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceDescription</p>
+                                        </div>
+                                        <a asp-controller="Home" asp-action="OpenPlace" asp-route-id="@q.PlaceId" class="tm-recommended-price-box">
+                                            <p class="tm-recommended-price-link">Continue Reading</p>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        </div>
+                    </div>
+                </div> <!-- tab-pane -->
+                <!-- Tab 5 -->
+                <div class="tab-pane fade" id="5a">
+
+                    <div class="tm-recommended-place-wrap">
+                        <div class="tm-recommended-place-wrap">
+                            @foreach (var q in Model.place)
+                            {
+                                @if (q.PlaceContinent == "AF")
+                                {
+
+                                    <div class="tm-recommended-place">
+                                        <img src="@q.ImageURL" alt="Image" class="img-fluid tm-recommended-img">
+                                        <div class="tm-recommended-description-box">
+                                            <h3 class="tm-recommended-title" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceHeading</h3>
+                                            <p class="tm-text-highlight" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.City , @q.Country</p>
+                                            <p class="tm-text-gray" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceDescription</p>
+                                        </div>
+                                        <a asp-controller="Home" asp-action="OpenPlace" asp-route-id="@q.PlaceId" class="tm-recommended-price-box">
+                                            <p class="tm-recommended-price-link">Continue Reading</p>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        </div>
+                    </div>
+
+                </div> <!-- tab-pane -->
+                <!-- Tab 6 -->
+                <div class="tab-pane fade" id="6a">
+
+                    <div class="tm-recommended-place-wrap">
+                        <div class="tm-recommended-place-wrap">
+                            @foreach (var q in Model.place)
+                            {
+                                @if (q.PlaceContinent == "AU")
+                                {
+
+                                    <div class="tm-recommended-place">
+                                        <img src="@q.ImageURL" alt="Image" class="img-fluid tm-recommended-img">
+                                        <div class="tm-recommended-description-box">
+                                            <h3 class="tm-recommended-title" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceHeading</h3>
+                                            <p class="tm-text-highlight" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.City , @q.Country</p>
+                                            <p class="tm-text-gray" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceDescription</p>
+                                        </div>
+                                        <a asp-controller="Home" asp-action="OpenPlace" asp-route-id="@q.PlaceId" class="tm-recommended-price-box">
+                                            <p class="tm-recommended-price-link">Continue Reading</p>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        </div>
+                    </div>
+
+                    .
+                </div> <!-- tab-pane -->
+                <!-- Tab 7 -->
+                <div class="tab-pane fade" id="7a">
+
+                    <div class="tm-recommended-place-wrap">
+                        <div class="tm-recommended-place-wrap">
+                            @foreach (var q in Model.place)
+                            {
+                                @if (q.PlaceContinent == "AR")
+                                {
+
+                                    <div class="tm-recommended-place">
+                                        <img src="@q.ImageURL" alt="Image" class="img-fluid tm-recommended-img">
+                                        <div class="tm-recommended-description-box">
+                                            <h3 class="tm-recommended-title" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceHeading</h3>
+                                            <p class="tm-text-highlight" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.City , @q.Country</p>
+                                            <p class="tm-text-gray" asp-controller="Home" asp-action="HomeIndex" asp-route-id="@q.PlaceId">@q.PlaceDescription</p>
+                                        </div>
+                                        <a asp-controller="Home" asp-action="OpenPlace" asp-route-id="@q.PlaceId" class="tm-recommended-price-box">
+                                            <p class="tm-recommended-price-link">Continue Reading</p>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <a asp-controller="Home" asp-action="PlaceCreate" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table" style=" margin: 4% 0%; ">Add More Places</a>
+            </div>
+        </div>
+
+        <div class="container-n" id="tm-section-4">
+            <div style="text-align:center">
+                <h2 style=" font-size: 40px; margin: 2% 0%;">Contact Us</h2>
+            </div>
+            <div class="row-n">
+                <div class="column-n">
+                    <div id="google-map" style="width:100%; "></div>
+                </div>
+                <div class="column-n">
+                    <form asp-action="AddContactUs" method="post" id="addContactUs">
+                        <label for="fname" asp-for="FirstName">First Name</label>
+                        <input type="text" asp-for="FirstName" id="fname" name="firstname" placeholder="Your name..">
+                        <label for="lname" asp-for="LastName">Last Name</label>
+                        <input type="text" asp-for="LastName" id="lname" name="lastname" placeholder="Your last name..">
+                        <label for="subject" asp-for="Subject">Subject</label>
+                        <textarea id="subject" asp-for="Subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                        <input type="submit" value="Submit">
+                        <input asp-for="ContactUsId" type="hidden" />
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer class="tm-container-outer">
+            <p class="mb-0">
+                Copyright © <span class="tm-current-year">2021</span> ExpeditionGo
+            </p>
+        </footer>
+    </div>

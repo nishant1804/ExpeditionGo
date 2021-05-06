@@ -1,0 +1,62 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<link rel="stylesheet" href="~/css/temp.css">
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'>
+
+<div class="bg-img bg-img2">
+    <div class="content-lg">
+        <header>Sign Up</header>
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="field">
+                <span class="fa fa-user"></span>
+                <input type="text" asp-for="Input.Email" required placeholder="Email or Phone">
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="field space">
+                <span class="fa fa-lock"></span>
+                <input type="password" asp-for="Input.Password" class="pass-key" required placeholder="Password">
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                <span class="show">SHOW</span>
+            </div>
+            <div class="field space">
+                <span class="fa fa-lock"></span>
+                <input type="password" asp-for="Input.ConfirmPassword" class="pass-key" required placeholder="Confirm Password">
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                <span class="show">SHOW</span>
+            </div>
+            <br />
+            <div class="field2 field">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+<script>
+    const pass_field = document.querySelector('.pass-key');
+    const showBtn = document.querySelector('.show');
+    showBtn.addEventListener('click', function () {
+        if (pass_field.type === "password") {
+            pass_field.type = "text";
+            showBtn.textContent = "HIDE";
+            showBtn.style.color = "#3498db";
+        } else {
+            pass_field.type = "password";
+            showBtn.textContent = "SHOW";
+            showBtn.style.color = "#222";
+        }
+    });
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
